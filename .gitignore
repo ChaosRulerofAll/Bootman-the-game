@@ -1,5 +1,9 @@
 .vs/
 
+# Ilya's added ignores
+.log
+.tlog
+
 # Prerequisites
 *.d
 
