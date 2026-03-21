@@ -1,2 +1,4 @@
 ﻿  Main.cpp
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Main.cpp(25,34): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Main.cpp(25,54): warning C4305: 'argument': truncation from 'double' to 'float'
   BootMan Project.vcxproj -> C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\x64\Debug\BootMan Project.exe
