@@ -11,7 +11,7 @@ using namespace sf;
 
 int main()
 {
-    Window window(VideoMode({ 800, 600 }), "My window");
+    Window window(VideoMode({ 1280, 720 }), "Pack Mann");
 
     // run the program as long as the window is open
     while (window.isOpen())
