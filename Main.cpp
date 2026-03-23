@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <vector>
+#include "player.h"
 
 using namespace std;
 using namespace sf;
@@ -30,6 +31,8 @@ int main()
     int xSpeed = 80;
     int ySpeed = 80;
 
+    Player player = Player({ 1280 / 2, 720 / 2 }, R"(assets/img/Akechi.png)");
+
     int currentColour = 0;
     Color textColours[6] = {
         Color::White,
@@ -40,15 +43,12 @@ int main()
         Color(255, 0, 0)
     };
 
-    // run the program as long as the window is open
     while (window.isOpen())
     {
         float delta = clock.restart().asSeconds();
 
-        // check all the window's events that were triggered since the last iteration of the loop
         while (const optional event = window.pollEvent())
         {
-            // "close requested" event: we close the window
             if (event->is<Event::Closed>())
                 window.close();
         }
@@ -79,6 +79,7 @@ int main()
         text.setPosition(pos);
 
         window.clear(Color::Black);
+        window.draw(player.GetSprite());
         window.draw(text);
         window.display();
     }

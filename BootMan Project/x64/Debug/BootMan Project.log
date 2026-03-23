@@ -1,4 +1,47 @@
 ﻿  Main.cpp
-C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Main.cpp(25,34): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Main.cpp(25,54): warning C4305: 'argument': truncation from 'double' to 'float'
-  BootMan Project.vcxproj -> C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\x64\Debug\BootMan Project.exe
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\player.h(21,20): error C2665: 'sf::Sprite::Sprite': no overloaded function could convert all the argument types
+  (compiling source file 'Main.cpp')
+      C:\SFML\include\SFML\Graphics\Sprite.hpp(225,1):
+      could be 'sf::Sprite::Sprite(sf::Sprite &&)'
+          C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\player.h(21,20):
+          'sf::Sprite::Sprite(sf::Sprite &&)': cannot convert argument 1 from 'sf::Texture' to 'sf::Sprite &&'
+              C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\player.h(21,20):
+              Reason: cannot convert from 'sf::Texture' to 'sf::Sprite'
+              C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\player.h(21,20):
+              No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+      C:\SFML\include\SFML\Graphics\Sprite.hpp(225,1):
+      or       'sf::Sprite::Sprite(const sf::Sprite &)'
+          C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\player.h(21,20):
+          'sf::Sprite::Sprite(const sf::Sprite &)': cannot convert argument 1 from 'sf::Texture' to 'const sf::Sprite &'
+              C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\player.h(21,20):
+              Reason: cannot convert from 'sf::Texture' to 'const sf::Sprite'
+              C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\player.h(21,20):
+              No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+      C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\player.h(21,20):
+      while trying to match the argument list '(sf::Texture)'
+  
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Main.cpp(26,34): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Main.cpp(26,54): warning C4305: 'argument': truncation from 'double' to 'float'
+  Player.cpp
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Player.h(21,20): error C2665: 'sf::Sprite::Sprite': no overloaded function could convert all the argument types
+  (compiling source file 'Player.cpp')
+      C:\SFML\include\SFML\Graphics\Sprite.hpp(225,1):
+      could be 'sf::Sprite::Sprite(sf::Sprite &&)'
+          C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Player.h(21,20):
+          'sf::Sprite::Sprite(sf::Sprite &&)': cannot convert argument 1 from 'sf::Texture' to 'sf::Sprite &&'
+              C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Player.h(21,20):
+              Reason: cannot convert from 'sf::Texture' to 'sf::Sprite'
+              C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Player.h(21,20):
+              No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+      C:\SFML\include\SFML\Graphics\Sprite.hpp(225,1):
+      or       'sf::Sprite::Sprite(const sf::Sprite &)'
+          C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Player.h(21,20):
+          'sf::Sprite::Sprite(const sf::Sprite &)': cannot convert argument 1 from 'sf::Texture' to 'const sf::Sprite &'
+              C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Player.h(21,20):
+              Reason: cannot convert from 'sf::Texture' to 'const sf::Sprite'
+              C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Player.h(21,20):
+              No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+      C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Player.h(21,20):
+      while trying to match the argument list '(sf::Texture)'
+  
+  Generating Code...
