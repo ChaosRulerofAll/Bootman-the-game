@@ -1,9 +1,5 @@
-﻿  Localisation.cpp
-  Main.cpp
-  MusicManager.cpp
-C:\Users\Mabel\Documents\Unreal Projects\Bootman-the-game\MusicManager.cpp(45,27): warning C4834: discarding return value of function with [[nodiscard]] attribute
-C:\Users\Mabel\Documents\Unreal Projects\Bootman-the-game\MusicManager.cpp(46,58): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Mabel\Documents\Unreal Projects\Bootman-the-game\MusicManager.cpp(46,99): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Player.cpp
-  Generating Code...
-  BootMan Project.vcxproj -> C:\Users\Mabel\Documents\Unreal Projects\Bootman-the-game\x64\Debug\BootMan Project.exe
+﻿  Player.cpp
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Player.h(22,21): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'Player.cpp')
+  
+  BootMan Project.vcxproj -> C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\x64\Debug\BootMan Project.exe

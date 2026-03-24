@@ -110,6 +110,7 @@ int main()
         }
 
         text.setPosition(pos);
+        player.Update(delta);
 
         window.clear(Color::Black);
         window.draw(player.GetSprite());
