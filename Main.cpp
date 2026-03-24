@@ -1,10 +1,13 @@
-#include <SFML/Window.hpp>
+﻿#include <SFML/Window.hpp>
+#include <SFML/Window/Event.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <cstdlib>
 #include <vector>
-#include "player.h"
+#include "Player.h"
+#include "MusicManager.h"
+#include "localisation.h"
 
 using namespace std;
 using namespace sf;
@@ -16,20 +19,20 @@ int main()
     Font font("assets/fnt/Subert Gaming.otf");
     Clock clock;
 
-    Text text(font);
-    text.setCharacterSize(24);
-    text.setFillColor(Color::White);
-    text.setString("me when im #Gaming");
-    text.setPosition(Vector2f(0, 0));
-
-    Music music("assets/snd/mus/skyrunner.ogg");
-    music.setLoopPoints({seconds(33.443356), seconds(58.435034)});
-    music.setLooping(true);
-    music.play();
+    Localisation localisationManager;
+    MusicManager musicManager;
+    bool isPaused = false;
+    int currentLang = 0;
 
     Vector2f pos = Vector2f(0, 0);
     int xSpeed = 80;
     int ySpeed = 80;
+
+    Text text(font);
+    text.setCharacterSize(24);
+    text.setFillColor(Color::White);
+    text.setString(localisationManager.GetLocalisedString(L"msg_debug", currentLang));
+    text.setPosition(Vector2f(0, 0));
 
     Player player = Player({ 1280 / 2, 720 / 2 }, R"(assets/img/Akechi.png)");
 
@@ -51,11 +54,36 @@ int main()
         {
             if (event->is<Event::Closed>())
                 window.close();
+            else if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>())
+            {
+                if (keyPressed->scancode == sf::Keyboard::Scancode::Escape)
+                    window.close();
+                else if (keyPressed->scancode == sf::Keyboard::Scancode::Space) {
+                    if (isPaused)
+                        musicManager.Resume();
+                    else
+                        musicManager.Pause();
+
+                    isPaused = !isPaused;
+                }
+                else if (keyPressed->scancode == sf::Keyboard::Scancode::L) {
+                    if (isPaused)
+                        musicManager.Resume();
+                    else
+                        musicManager.Pause();
+
+                    isPaused = !isPaused;
+                }
+            }
         }
 
-        if (Keyboard::isKeyPressed(Keyboard::Key::Escape))
-            window.close();
+        if (window.hasFocus()) {            
+            if (Keyboard::isKeyPressed(Keyboard::Key::P))
+                musicManager.Play("papaoutai");
 
+            if (Keyboard::isKeyPressed(Keyboard::Key::Backspace))
+                musicManager.Stop();
+        }
         pos = Vector2f(pos.x + (xSpeed * delta), pos.y + (ySpeed * delta));
         
         FloatRect textRect = text.getGlobalBounds();

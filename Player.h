@@ -18,6 +18,6 @@ class Player
 		sf::Sprite GetSprite();
 	private:
 		Texture spriteTexture;
-		Sprite sprite;
+		// Sprite sprite;
 };
 

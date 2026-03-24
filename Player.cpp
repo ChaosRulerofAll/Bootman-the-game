@@ -7,19 +7,21 @@ Player::Player(Vector2f pos, std::string spritePath)
 	this->moveSpeed = 0;
 
     Texture texture;
-    if (!texture.loadFromFile(spritePath, false, sf::IntRect({0, 0}, {100, 100})))
+    if (!texture.loadFromFile("assets/img/sora.png"))
     {
         std::cerr << "failed to load image " << R"(spritePath)" << std::endl;
         exit(1);
     }
 
     this->spriteTexture = texture;
-    sprite.setTexture(spriteTexture);
 }
 
 sf::Sprite Player::GetSprite() {
     sf::Sprite sprite(spriteTexture);
-    sprite.setOrigin({ 50, 50 });
+
+    sprite.setTextureRect(sf::IntRect({320, 0}, {40, 55}));
+    sprite.setOrigin({ (float)(sprite.getTextureRect().size.x / 2) , (float)sprite.getTextureRect().size.y });
+    sprite.setScale({2, 2});
     sprite.setPosition(screenPos);
     return sprite;
 }
