@@ -74,6 +74,11 @@ int main()
 
                     isPaused = !isPaused;
                 }
+                else if (keyPressed->scancode == sf::Keyboard::Scancode::R) {
+                    currentLang += 1;
+                    currentLang %= 3;
+                    text.setString(localisationManager.GetLocalisedString(L"msg_debug", currentLang));
+                }
             }
         }
 
