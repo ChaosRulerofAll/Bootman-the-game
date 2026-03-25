@@ -25,7 +25,7 @@ sf::Sprite Player::GetSprite() {
     if (moveDir.length() < 0.5)
         sprite.setTextureRect(animList[currentAnimName][0]);
     else
-        sprite.setTextureRect(animList[currentAnimName][currentAnimRect]);
+        sprite.setTextureRect(animList[currentAnimName][currentAnimRect % animList[currentAnimName].size()]);
     sprite.setOrigin({ (float)(sprite.getTextureRect().size.x / 2) , (float)sprite.getTextureRect().size.y });
     sprite.setScale({2, 2});
     sprite.setPosition(screenPos);
@@ -98,7 +98,6 @@ void Player::Update(float deltaTime) {
 
     if (prevMoveDir.length() > 0.5){
         nextFrameCounter += deltaTime;
-        // cout << nextFrameCounter << endl;
         if (nextFrameCounter >= animSpeed) {
             nextFrameCounter -= animSpeed;
             currentAnimRect += 1;
@@ -131,40 +130,24 @@ void Player::Update(float deltaTime) {
 
 void Player::SetAnimation() {
     if (moveDir.x == 0 && moveDir.y == 0) {
-        if (prevMoveDir == Vector2f(-1, 0))
-            currentAnimName = "ls";
-        else if (prevMoveDir == Vector2f(1, 0))
-            currentAnimName = "rs";
-        else if (prevMoveDir == Vector2f(0, 1))
-            currentAnimName = "ds";
-        else if (prevMoveDir == Vector2f(0, -1))
-            currentAnimName = "us";
-        else if (prevMoveDir == Vector2f(1, -1))
-            currentAnimName = "urs";
-        else if (prevMoveDir == Vector2f(-1, -1))
-            currentAnimName = "uls";
-        else if (prevMoveDir == Vector2f(1, 1))
-            currentAnimName = "drs";
-        else if (prevMoveDir == Vector2f(-1, 1))
-            currentAnimName = "dls";
+        if (prevMoveDir ==      Vector2f(-1,  0)) currentAnimName = "ls";
+        else if (prevMoveDir == Vector2f( 1,  0)) currentAnimName = "rs";
+        else if (prevMoveDir == Vector2f( 0,  1)) currentAnimName = "ds";
+        else if (prevMoveDir == Vector2f( 0, -1)) currentAnimName = "us";
+        else if (prevMoveDir == Vector2f( 1, -1)) currentAnimName = "urs";
+        else if (prevMoveDir == Vector2f(-1, -1)) currentAnimName = "uls";
+        else if (prevMoveDir == Vector2f( 1,  1)) currentAnimName = "drs";
+        else if (prevMoveDir == Vector2f(-1,  1)) currentAnimName = "dls";
     }
     else 
     {
-        if (prevMoveDir == Vector2f(-1, 0))
-            currentAnimName = "l";
-        else if (prevMoveDir == Vector2f(1, 0))
-            currentAnimName = "r";
-        else if (prevMoveDir == Vector2f(0, 1))
-            currentAnimName = "d";
-        else if (prevMoveDir == Vector2f(0, -1))
-            currentAnimName = "u";
-        else if (prevMoveDir == Vector2f(1, -1))
-            currentAnimName = "ur";
-        else if (prevMoveDir == Vector2f(-1, -1))
-            currentAnimName = "ul";
-        else if (prevMoveDir == Vector2f(1, 1))
-            currentAnimName = "dr";
-        else if (prevMoveDir == Vector2f(-1, 1))
-            currentAnimName = "dl";
+        if (prevMoveDir ==      Vector2f(-1, 0 )) currentAnimName = "l";
+        else if (prevMoveDir == Vector2f( 1,  0)) currentAnimName = "r";
+        else if (prevMoveDir == Vector2f( 0,  1)) currentAnimName = "d";
+        else if (prevMoveDir == Vector2f( 0, -1)) currentAnimName = "u";
+        else if (prevMoveDir == Vector2f( 1, -1)) currentAnimName = "ur";
+        else if (prevMoveDir == Vector2f(-1, -1)) currentAnimName = "ul";
+        else if (prevMoveDir == Vector2f( 1,  1)) currentAnimName = "dr";
+        else if (prevMoveDir == Vector2f(-1,  1)) currentAnimName = "dl";
     }
 }
