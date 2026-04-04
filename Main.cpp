@@ -125,12 +125,13 @@ int main()
 
         text.setPosition(pos);
         player.Update(delta, windowSize);
-        player.CheckWalls(wall.GetRect(), delta);
+        for (int i = 0; i < wallCount; i++) player.CheckWalls(wallList[i].GetRect(), delta);
 
         window.clear(Color::Black);
         for (Pellet& pellet : pelletList) pellet.Draw(window);
-        for (Wall& wall : wallList) wall.Draw(window);
-        window.draw(wall.GetSprite());
+        //for (Wall& wall : wallList) wall.Draw(window);
+        for (Wall& wall : wallList) window.draw(wall.GetSprite());
+        //window.draw(wall.GetSprite());
         window.draw(player.GetRect());
         window.draw(player.GetSprite());
         window.draw(text);
