@@ -22,7 +22,7 @@ static Vector2u windowSize = {896, 992};
 
 int main()
 {
-    int tileSize = min(windowSize.x / 31, windowSize.y / 28);
+    int tileSize = 32;
     Map map(windowSize, tileSize);
 
     RenderWindow window(VideoMode(windowSize), "Pack Mann");
@@ -124,7 +124,7 @@ int main()
         }//*/
 
         text.setPosition(pos);
-        player.Update(delta);
+        player.Update(delta, windowSize);
         for (int i = 0; i < wallCount; i++) player.CheckWalls(wallList[i].GetRect(), delta);
 
         window.clear(Color::Black);
