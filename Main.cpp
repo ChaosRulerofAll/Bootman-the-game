@@ -9,6 +9,8 @@
 #include "MusicManager.h"
 #include "localisation.h"
 #include "Map.h"
+#include "Interactables.h"
+#include <filesystem>
 #include "Wall.h"
 
 using namespace std;
@@ -16,11 +18,12 @@ using namespace sf;
 
 //auto hightForScreen = 720;
 //unsigned int widthForScreen = 1280;
-static Vector2u windowSize = {1280, 720};
+static Vector2u windowSize = {896, 992};
 
 int main()
 {
-    Map map(windowSize, 10);
+    int tileSize = min(windowSize.x / 31, windowSize.y / 28);
+    Map map(windowSize, tileSize);
 
     RenderWindow window(VideoMode(windowSize), "Pack Mann");
     Font font("assets/fnt/Subert Gaming.otf");
@@ -53,6 +56,8 @@ int main()
         Color(255, 0, 0)
     };
 
+    SpawnPellets(map, windowSize);
+   
     Wall wall(100, 100, 64, 64);
 
     while (window.isOpen())
@@ -119,10 +124,12 @@ int main()
         }
 
         text.setPosition(pos);
-        player.Update(delta, windowSize);
+        player.Update(delta);
         player.CheckWalls(wall.GetRect(), delta);
 
         window.clear(Color::Black);
+        for (Pellet& pellet : pelletList) pellet.Draw(window);
+        for (Wall& wall : wallList) wall.Draw(window);
         window.draw(wall.GetSprite());
         window.draw(player.GetRect());
         window.draw(player.GetSprite());
