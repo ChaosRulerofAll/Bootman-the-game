@@ -42,8 +42,13 @@ sf::RectangleShape Player::GetRect() {
     return rect;
 }
 
-void Player::CheckWalls(FloatRect rect) {
+void Player::CheckWalls(FloatRect rect, float deltaTime) {
+    FloatRect soraRect({ screenPos.x, screenPos.y }, { 50, 40 });
 
+    if (soraRect.findIntersection(rect)) {
+        screenPos.x -= moveDir.x * topSpeed * deltaTime;
+        screenPos.y -= moveDir.y * topSpeed * deltaTime;
+    }
 }
 
 void Player::ParseXML(string path) {

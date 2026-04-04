@@ -120,7 +120,7 @@ int main()
 
         text.setPosition(pos);
         player.Update(delta);
-        player.CheckWalls(wall.GetRect());
+        player.CheckWalls(wall.GetRect(), delta);
 
         window.clear(Color::Black);
         window.draw(wall.GetSprite());
