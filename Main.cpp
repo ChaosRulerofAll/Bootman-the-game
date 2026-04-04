@@ -8,14 +8,20 @@
 #include "Player.h"
 #include "MusicManager.h"
 #include "localisation.h"
+#include "Map.h"
 
 using namespace std;
 using namespace sf;
 
+//auto hightForScreen = 720;
+//unsigned int widthForScreen = 1280;
+static Vector2u windowSize = {1280, 720};
 
 int main()
 {
-    RenderWindow window(VideoMode({ 1280, 720 }), "Pack Mann");
+    Map map(windowSize, 10);
+
+    RenderWindow window(VideoMode(windowSize), "Pack Mann");
     Font font("assets/fnt/Subert Gaming.otf");
     Clock clock;
 
@@ -34,7 +40,7 @@ int main()
     text.setString(localisationManager.GetLocalisedString(L"msg_debug", currentLang));
     text.setPosition(Vector2f(0, 0));
 
-    Player player = Player({ 1280 / 2, 720 / 2 }, R"(assets/img/Akechi.png)");
+    Player player = Player({ (float)windowSize.x / 2, (float)windowSize.y / 2 }, R"(assets/img/Akechi.png)");
 
     int currentColour = 0;
     Color textColours[6] = {
@@ -93,7 +99,7 @@ int main()
         
         FloatRect textRect = text.getGlobalBounds();
 
-        if (pos.x > 1280 - textRect.size.x || pos.x < 0) {
+        if (pos.x > windowSize.x - textRect.size.x || pos.x < 0) {
             xSpeed *= -1;
             currentColour += 1;
             currentColour %= 6;
@@ -101,7 +107,7 @@ int main()
             text.setFillColor(textColours[currentColour]);
         }
 
-        if (pos.y > 720 - textRect.size.y || pos.y < 0) {
+        if (pos.y > windowSize.y - textRect.size.y || pos.y < 0) {
             ySpeed *= -1;
             currentColour += 1;
             currentColour %= 6;
