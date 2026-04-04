@@ -27,10 +27,10 @@ void SpawnPellets(Map& mapLayout, Vector2u windowSize) {
 			if (mapLayout.GetTileType(row, col) == 'P') {
 				Vector2f position(offsetX + col * tileSize, offsetY + row * tileSize);
 				pelletList.push_back(Pellet(position));
-			};
-			if (mapLayout.GetTileType(row, col) == 'W') {
+			}
+			else if (mapLayout.GetTileType(row, col) == 'W') {
 				Vector2f positionWall(offsetX + col * tileSize, offsetY + row * tileSize);
-				wallList.push_back(Wall (positionWall.x, positionWall.y));
+				wallList.push_back(Wall(positionWall.x, positionWall.y));
 				wallCount++;
 			}
 
