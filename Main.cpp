@@ -58,7 +58,7 @@ int main()
 
     SpawnPellets(map, windowSize);
    
-    Wall wall(100, 100, 64, 64);
+    // Wall wall(100, 100, 64, 64);
 
     while (window.isOpen())
     {

@@ -28,23 +28,23 @@ sf::Sprite Player::GetSprite() {
     else
         sprite.setTextureRect(animList[currentAnimName][currentAnimRect % animList[currentAnimName].size()]);
     sprite.setOrigin({ (float)(sprite.getTextureRect().size.x / 2) , (float)sprite.getTextureRect().size.y });
-    sprite.setScale({0.7, 0.7});
+    sprite.setScale({1, 1});
     sprite.setPosition(screenPos);
     return sprite;
 }
 
 sf::RectangleShape Player::GetRect() {
-    RectangleShape rect({ 50, 40 });
+    RectangleShape rect({ 24, 14 });
 
     rect.setFillColor(Color::Green);
-    rect.setOrigin({ 25 , 40 });
+    rect.setOrigin({ 12 , 14 });
     rect.setPosition(screenPos);
 
     return rect;
 }
 
 void Player::CheckWalls(FloatRect rect, float deltaTime) {
-    FloatRect soraRect({ screenPos.x, screenPos.y }, { 50, 40 });
+    FloatRect soraRect({ screenPos.x, screenPos.y }, { 12, 14 });
 
     if (soraRect.findIntersection(rect)) {
         screenPos.x -= moveDir.x * topSpeed * deltaTime;
