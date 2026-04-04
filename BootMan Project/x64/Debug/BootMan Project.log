@@ -1,5 +1,33 @@
-﻿  Player.cpp
+﻿  0 File(s) copied
+  Main.cpp
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Player.h(31,21): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'Main.cpp')
+  
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Interactables.h(18,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'Main.cpp')
+  
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Wall.h(8,7): error C2011: 'Wall': 'class' type redefinition
+  (compiling source file 'Main.cpp')
+      C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Interactables.h(57,7):
+      see declaration of 'Wall'
+  
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Main.cpp(61,10): error C2079: 'wall' uses undefined class 'Wall'
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Main.cpp(132,37): error C2027: use of undefined type 'Wall'
+      C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Interactables.h(57,7):
+      see declaration of 'Wall'
+  
+  Player.cpp
 C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Player.h(31,21): warning C4305: 'initializing': truncation from 'double' to 'float'
   (compiling source file 'Player.cpp')
   
-  BootMan Project.vcxproj -> C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\x64\Debug\BootMan Project.exe
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Player.cpp(31,27): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Player.cpp(31,27): warning C4305:         with
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Player.cpp(31,27): warning C4305:         [
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Player.cpp(31,27): warning C4305:             T=float
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Player.cpp(31,27): warning C4305:         ]
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Player.cpp(31,22): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Player.cpp(31,22): warning C4305:         with
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Player.cpp(31,22): warning C4305:         [
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Player.cpp(31,22): warning C4305:             T=float
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Player.cpp(31,22): warning C4305:         ]
+  Generating Code...
