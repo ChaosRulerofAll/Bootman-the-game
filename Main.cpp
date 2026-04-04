@@ -18,7 +18,7 @@ using namespace sf;
 
 //auto hightForScreen = 720;
 //unsigned int widthForScreen = 1280;
-static Vector2u windowSize = {1280, 720};
+static Vector2u windowSize = {896, 992};
 
 int main()
 {
