@@ -44,7 +44,7 @@ sf::RectangleShape Player::GetRect() {
 }
 
 void Player::CheckWalls(FloatRect rect, float deltaTime) {
-    FloatRect soraRect({ screenPos.x, screenPos.y }, { 12, 14 });
+    FloatRect soraRect({ screenPos.x, screenPos.y }, { 24, 14 });
 
     if (soraRect.findIntersection(rect)) {
         screenPos.x -= moveDir.x * topSpeed * deltaTime;

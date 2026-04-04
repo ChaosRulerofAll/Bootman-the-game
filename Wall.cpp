@@ -6,7 +6,7 @@ Wall::Wall() {
 }
 
 Wall::Wall(int x, int y) {
-	size = { 32, 32 };
+	size = { 25, 25 };
 	pos = { (float) x, (float) y };
 }
 

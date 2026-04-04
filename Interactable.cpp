@@ -19,8 +19,8 @@ Interactables::~Interactables() {};
 void SpawnPellets(Map& mapLayout, Vector2u windowSize) {
 
 	int tileSize = mapLayout.GetTilePixelSize(pixelSize);
-	float offsetX = max(0.0f, ((int)windowSize.x - (28 * tileSize)) / 2.0f);
-	float offsetY = max(0.0f, ((int)windowSize.y - (31 * tileSize)) / 2.0f);
+	float offsetX = max(0.0f, ((int)windowSize.x - (28 * tileSize)) / 2.0f) + 16;
+	float offsetY = max(0.0f, ((int)windowSize.y - (31 * tileSize)) / 2.0f) + 16;
 
 	for (int row = 0; row < 31; row++) {
 		for (int col = 0; col < 28; col++) {
