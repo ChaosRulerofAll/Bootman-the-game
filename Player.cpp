@@ -32,6 +32,20 @@ sf::Sprite Player::GetSprite() {
     return sprite;
 }
 
+sf::RectangleShape Player::GetRect() {
+    RectangleShape rect({ 50, 40 });
+
+    rect.setFillColor(Color::Green);
+    rect.setOrigin({ 25 , 40 });
+    rect.setPosition(screenPos);
+
+    return rect;
+}
+
+void Player::CheckWalls(FloatRect rect) {
+
+}
+
 void Player::ParseXML(string path) {
     std::ifstream spriteSheet(path);
 
