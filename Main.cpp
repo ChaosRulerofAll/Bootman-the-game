@@ -119,7 +119,7 @@ int main()
         }
 
         text.setPosition(pos);
-        player.Update(delta);
+        player.Update(delta, windowSize);
         player.CheckWalls(wall.GetRect(), delta);
 
         window.clear(Color::Black);

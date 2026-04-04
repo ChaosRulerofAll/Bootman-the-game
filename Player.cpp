@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <math.h>
 #include "Player.h"
 
 Player::Player(Vector2f pos, std::string spritePath)
@@ -112,7 +113,7 @@ void Player::ParseXML(string path) {
     }
 }
 
-void Player::Update(float deltaTime) {
+void Player::Update(float deltaTime, Vector2u windowSize) {
     SetAnimation();
 
     if (prevMoveDir.length() > 0.5){
@@ -145,6 +146,19 @@ void Player::Update(float deltaTime) {
 
     screenPos.x += moveDir.x * topSpeed * deltaTime;
     screenPos.y += moveDir.y * topSpeed * deltaTime;
+
+    if (screenPos.x < -40) {
+        screenPos.x += windowSize.x + 80;
+    } else if (screenPos.x > windowSize.x + 40) {
+        screenPos.x -= windowSize.x + 80;
+    }
+
+    if (screenPos.y < -75) {
+        screenPos.y += windowSize.y + 150;
+    }
+    else if (screenPos.y > windowSize.y + 50) {
+        screenPos.y -= windowSize.y + 150;
+    }
 }
 
 void Player::SetAnimation() {

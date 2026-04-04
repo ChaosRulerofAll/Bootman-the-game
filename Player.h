@@ -16,7 +16,7 @@ class Player
 
 		Player();
 		Player(Vector2f pos, std::string spritePath);
-		void Update(float deltaTime);
+		void Update(float deltaTime, Vector2u windowSize);
 		void CheckWalls(FloatRect rect, float deltaTime);
 
 		sf::Sprite GetSprite();
