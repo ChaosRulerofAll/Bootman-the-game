@@ -1,0 +1,5 @@
+﻿  Player.cpp
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Player.h(31,21): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'Player.cpp')
+  
+  BootMan Project.vcxproj -> C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\x64\Debug\BootMan Project.exe

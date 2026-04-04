@@ -17,8 +17,10 @@ class Player
 		Player();
 		Player(Vector2f pos, std::string spritePath);
 		void Update(float deltaTime);
+		void CheckWalls(FloatRect rect, float deltaTime);
 
 		sf::Sprite GetSprite();
+		sf::RectangleShape GetRect();
 	private:
 		void ParseXML(string path);
 		void SetAnimation();

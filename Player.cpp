@@ -32,6 +32,25 @@ sf::Sprite Player::GetSprite() {
     return sprite;
 }
 
+sf::RectangleShape Player::GetRect() {
+    RectangleShape rect({ 50, 40 });
+
+    rect.setFillColor(Color::Green);
+    rect.setOrigin({ 25 , 40 });
+    rect.setPosition(screenPos);
+
+    return rect;
+}
+
+void Player::CheckWalls(FloatRect rect, float deltaTime) {
+    FloatRect soraRect({ screenPos.x, screenPos.y }, { 50, 40 });
+
+    if (soraRect.findIntersection(rect)) {
+        screenPos.x -= moveDir.x * topSpeed * deltaTime;
+        screenPos.y -= moveDir.y * topSpeed * deltaTime;
+    }
+}
+
 void Player::ParseXML(string path) {
     std::ifstream spriteSheet(path);
 

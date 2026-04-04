@@ -11,6 +11,7 @@
 #include "Map.h"
 #include "Interactables.h"
 #include <filesystem>
+#include "Wall.h"
 
 using namespace std;
 using namespace sf;
@@ -58,6 +59,7 @@ int main()
 
     SpawnPellets(map, windowSize);
    
+    Wall wall(100, 100, 64, 64);
 
     while (window.isOpen())
     {
@@ -124,10 +126,13 @@ int main()
 
         /*text.setPosition(pos);*/
         player.Update(delta);
+        player.CheckWalls(wall.GetRect(), delta);
 
         window.clear(Color::Black);
         for (Pellet& pellet : pelletList) pellet.Draw(window);
         for (Wall& wall : wallList) wall.Draw(window);
+        window.draw(wall.GetSprite());
+        window.draw(player.GetRect());
         window.draw(player.GetSprite());
         /*window.draw(text)*/;
         
