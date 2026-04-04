@@ -59,5 +59,13 @@ class Map
 		{
 
 		}
+		 char GetTileType(int row, int col) const {
+
+			return tileType[row][col];
+		}
+
+		 int GetTilePixelSize(int pixelSize) {
+			 return tilePixelSize;
+		 }
 };
 

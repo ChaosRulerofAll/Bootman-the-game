@@ -12,7 +12,7 @@ class Player
 	public:
 		Vector2f screenPos;
 		float moveSpeed = 0;
-		float topSpeed = 375;
+		float topSpeed = 150;
 
 		Player();
 		Player(Vector2f pos, std::string spritePath);

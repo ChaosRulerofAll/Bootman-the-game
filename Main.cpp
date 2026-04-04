@@ -9,6 +9,8 @@
 #include "MusicManager.h"
 #include "localisation.h"
 #include "Map.h"
+#include "Interactables.h"
+#include <filesystem>
 
 using namespace std;
 using namespace sf;
@@ -19,7 +21,8 @@ static Vector2u windowSize = {1280, 720};
 
 int main()
 {
-    Map map(windowSize, 10);
+    int tileSize = min(windowSize.x / 31, windowSize.y / 28);
+    Map map(windowSize, tileSize);
 
     RenderWindow window(VideoMode(windowSize), "Pack Mann");
     Font font("assets/fnt/Subert Gaming.otf");
@@ -42,6 +45,7 @@ int main()
 
     Player player = Player({ (float)windowSize.x / 2, (float)windowSize.y / 2 }, R"(assets/img/Akechi.png)");
 
+
     int currentColour = 0;
     Color textColours[6] = {
         Color::White,
@@ -51,6 +55,9 @@ int main()
         Color(255, 247, 0),
         Color(255, 0, 0)
     };
+
+    SpawnPellets(map, windowSize);
+   
 
     while (window.isOpen())
     {
@@ -97,7 +104,7 @@ int main()
         }
         pos = Vector2f(pos.x + (xSpeed * delta), pos.y + (ySpeed * delta));
         
-        FloatRect textRect = text.getGlobalBounds();
+        /*FloatRect textRect = text.getGlobalBounds();
 
         if (pos.x > windowSize.x - textRect.size.x || pos.x < 0) {
             xSpeed *= -1;
@@ -113,14 +120,17 @@ int main()
             currentColour %= 6;
             pos.y += ySpeed * delta;
             text.setFillColor(textColours[currentColour]);
-        }
+        }*/
 
-        text.setPosition(pos);
+        /*text.setPosition(pos);*/
         player.Update(delta);
 
         window.clear(Color::Black);
+        for (Pellet& pellet : pelletList) pellet.Draw(window);
+        for (Wall& wall : wallList) wall.Draw(window);
         window.draw(player.GetSprite());
-        window.draw(text);
+        /*window.draw(text)*/;
+        
         window.display();
     }
 }

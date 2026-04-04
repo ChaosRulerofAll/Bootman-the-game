@@ -30,7 +30,7 @@
     <ClCompile Include="Map.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Interactables.cpp">
+    <ClCompile Include="Interactable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
