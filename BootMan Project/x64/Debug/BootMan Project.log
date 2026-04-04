@@ -1,5 +1,16 @@
-﻿  Player.cpp
-C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Player.h(31,21): warning C4305: 'initializing': truncation from 'double' to 'float'
-  (compiling source file 'Player.cpp')
+﻿  0 File(s) copied
+  Interactable.cpp
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Interactables.h(19,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  (compiling source file 'Interactable.cpp')
   
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Interactable.cpp(33,58): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Interactable.cpp(33,58): warning C4244:         with
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Interactable.cpp(33,58): warning C4244:         [
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Interactable.cpp(33,58): warning C4244:             T=float
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Interactable.cpp(33,58): warning C4244:         ]
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Interactable.cpp(33,42): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Interactable.cpp(33,42): warning C4244:         with
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Interactable.cpp(33,42): warning C4244:         [
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Interactable.cpp(33,42): warning C4244:             T=float
+C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\Interactable.cpp(33,42): warning C4244:         ]
   BootMan Project.vcxproj -> C:\Users\mabel\OneDrive\Documents\GitHub\Bootman-the-game\x64\Debug\BootMan Project.exe

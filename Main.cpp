@@ -58,7 +58,7 @@ int main()
 
     SpawnPellets(map, windowSize);
    
-    Wall wall(100, 100, 64, 64);
+    // Wall wall(100, 100, 64, 64);
 
     while (window.isOpen())
     {
@@ -121,7 +121,7 @@ int main()
             currentColour %= 6;
             pos.y += ySpeed * delta;
             text.setFillColor(textColours[currentColour]);
-        }//*/
+        }
 
         text.setPosition(pos);
         player.Update(delta, windowSize);
