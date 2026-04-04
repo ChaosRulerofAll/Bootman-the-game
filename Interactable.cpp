@@ -10,6 +10,7 @@ using namespace std;
 
 vector<Pellet> pelletList;
 vector<Wall> wallList;
+int wallCount;
 int pixelSize;
 
 Interactables::~Interactables() {};
@@ -23,13 +24,14 @@ void SpawnPellets(Map& mapLayout, Vector2u windowSize) {
 
 	for (int row = 0; row < 31; row++) {
 		for (int col = 0; col < 28; col++) {
-			if (mapLayout.GetTileType(row, col) == 'E') {
+			if (mapLayout.GetTileType(row, col) == 'P') {
 				Vector2f position(offsetX + col * tileSize, offsetY + row * tileSize);
 				pelletList.push_back(Pellet(position));
 			};
 			if (mapLayout.GetTileType(row, col) == 'W') {
 				Vector2f positionWall(offsetX + col * tileSize, offsetY + row * tileSize);
-				wallList.push_back(Wall (positionWall));
+				wallList.push_back(Wall (positionWall.x, positionWall.y));
+				wallCount++;
 			}
 
 		};

@@ -15,6 +15,7 @@ public:
 	sf::RectangleShape GetSprite();
 	sf::FloatRect GetRect();
 
+
 private:
 	Vector2f pos;
 	Vector2f size;

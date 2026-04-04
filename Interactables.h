@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Vector2.hpp>
 #include <vector>
+#include "Wall.h"
 
 using namespace std;
 using namespace sf;
@@ -53,13 +54,14 @@ class Pellet : public Interactables {
 public:
 	Pellet(Vector2f pos) : Interactables(pos, 10, 3, Color::White) {}
 };
-
+/*
 class Wall : public Interactables {
 public:
 	Wall(Vector2f pos) : Interactables(pos, 10, 4, Color::Red) {}
 };
-
+//*/
 
 extern vector<Pellet> pelletList;
 extern vector<Wall> wallList;
+extern int wallCount;
 void SpawnPellets(Map& map, Vector2u windowSize);
