@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Interactables.cpp" />
     <ClCompile Include="Localisation.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -135,6 +136,7 @@
     <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Interactables.h" />
     <ClInclude Include="Localisation.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MusicManager.h" />
