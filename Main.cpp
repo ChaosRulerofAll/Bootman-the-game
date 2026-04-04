@@ -40,6 +40,7 @@ int main()
 
     Text text(font);
     text.setCharacterSize(24);
+    text.setOutlineThickness(3);
     text.setFillColor(Color::White);
     text.setString(localisationManager.GetLocalisedString(L"msg_debug", currentLang));
     text.setPosition(Vector2f(0, 0));
