@@ -9,8 +9,11 @@ using namespace std;
 using namespace sf;
 
 class Interactables {
-
 public:
+
+	
+
+
 	Interactables(Vector2f pos, int scoreValue, int Size, Color color) : position(pos), score(scoreValue), size(Size), col(color), isActive(true) {
 		pellet.setRadius(Size);
 		pellet.setFillColor(color);
@@ -26,7 +29,14 @@ public:
 		}
 	}
 
-	virtual void OnCollect() {};
+	virtual void OnCollect() {
+		isActive = false;
+		
+	};
+
+	bool IsActive() const { return isActive;}
+
+	FloatRect GetBounds() const{ return pellet.getGlobalBounds(); };
 
 	void addScore(int value) {
 		score += value;
@@ -39,10 +49,13 @@ public:
 private:
 	int score;
 	Vector2f position;
-	bool isActive;
 	CircleShape pellet;
 	int size;
 	Color col;
+
+protected:
+	bool isActive;
+
 };
 
 class Pellet : public Interactables {
@@ -50,14 +63,18 @@ public:
 	Pellet(Vector2f pos) : Interactables(pos, 10, 3, Color::White) {}
 };
 
-/*
-class Wall : public Interactables {
+
+class PowerPellet : public Interactables {
 public:
-	Wall(Vector2f pos) : Interactables(pos, 10, 4, Color::Red) {}
+	PowerPellet(Vector2f pos) : Interactables(pos, 10, 6, Color::Red) {}
+
+	void OnCollect() override {
+		isActive = false;
+	}
 };
-//*/
 
 extern vector<Pellet> pelletList;
+extern vector<PowerPellet> pPelletList;
 extern vector<Wall> wallList;
 extern int wallCount;
 void SpawnPellets(Map& map, Vector2u windowSize);

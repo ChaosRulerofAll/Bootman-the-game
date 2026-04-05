@@ -44,10 +44,22 @@ sf::RectangleShape Player::GetRect() {
 }
 
 void Player::CheckWalls(FloatRect rect, float deltaTime) {
-    FloatRect soraRect({ screenPos.x, screenPos.y }, { 24, 14 });
-
-    if (soraRect.findIntersection(rect)) {
+    
+    FloatRect soraRectX(
+        { screenPos.x - 10.f + moveDir.x * topSpeed * deltaTime, screenPos.y - 10.f },
+        { 20.f, 20.f }
+    );
+    
+    if (soraRectX.findIntersection(rect)) {
         screenPos.x -= moveDir.x * topSpeed * deltaTime;
+    }
+
+    // Check Y axis alone
+    FloatRect soraRectY(
+        { screenPos.x - 10.f, screenPos.y - 10.f + moveDir.y * topSpeed * deltaTime },
+        { 20.f, 20.f }
+    );
+    if (soraRectY.findIntersection(rect)) {
         screenPos.y -= moveDir.y * topSpeed * deltaTime;
     }
 }

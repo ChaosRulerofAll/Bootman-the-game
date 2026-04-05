@@ -1,9 +1,10 @@
-﻿  0 archivo(s) copiado(s)
+﻿  0 File(s) copied
   Main.cpp
-C:\Users\Mabel\Documents\Unreal Projects\Bootman-the-game\Player.h(31,21): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\bowen\Documents\GitHub\Bootman-the-game\Player.h(31,21): warning C4305: 'initializing': truncation from 'double' to 'float'
   (compiling source file 'Main.cpp')
   
-C:\Users\Mabel\Documents\Unreal Projects\Bootman-the-game\Interactables.h(15,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\bowen\Documents\GitHub\Bootman-the-game\Interactables.h(17,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'Main.cpp')
   
-  BootMan Project.vcxproj -> C:\Users\Mabel\Documents\Unreal Projects\Bootman-the-game\x64\Debug\BootMan Project.exe
+C:\Users\bowen\Documents\GitHub\Bootman-the-game\Main.cpp(177,30): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  BootMan Project.vcxproj -> C:\Users\bowen\Documents\GitHub\Bootman-the-game\x64\Debug\BootMan Project.exe
