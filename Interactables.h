@@ -30,6 +30,7 @@ public:
 
 	virtual void OnCollect() {
 		isActive = false;
+		
 	};
 
 	bool IsActive() const { return isActive;}

@@ -22,6 +22,9 @@ static Vector2u windowSize = {896, 992};
 
 int main()
 {
+
+    bool gameWon = false;
+
     int tileSize = min(windowSize.x / 31, windowSize.y / 28);
     Map map(windowSize, tileSize);
 
@@ -41,6 +44,7 @@ int main()
     bool boostActive = false;
     float boostTimer = 0.0f;
     const float boostDuration = 5.0f;
+
 
     Text text(font);
     text.setCharacterSize(24);
@@ -142,17 +146,23 @@ int main()
         
 
         FloatRect playerBounds = player.GetRect().getGlobalBounds();
-        for (Pellet& pellet : pelletList) {
-            if (pellet.IsActive() && playerBounds.findIntersection(pellet.GetBounds())) {
-                pellet.OnCollect();
+        for (auto it = pelletList.begin(); it != pelletList.end();) {
+            if (it->IsActive() && playerBounds.findIntersection(it->GetBounds())) {
+                it = pelletList.erase(it);
+            }
+            else {
+                ++it;
             }
         }
-        for (PowerPellet& powerPellet : pPelletList) {
-            if (powerPellet.IsActive() && playerBounds.findIntersection(powerPellet.GetBounds())) {
-                powerPellet.OnCollect();
+        for (auto it = pPelletList.begin(); it != pPelletList.end();) {
+            if (it->IsActive() && playerBounds.findIntersection(it->GetBounds())) {
                 player.topSpeed *= 1.5f;
                 boostActive = true;
                 boostTimer = 0.0f;
+                it = pPelletList.erase(it);
+            }
+            else {
+                ++it;
             }
         }
         if (boostActive) {
@@ -164,8 +174,12 @@ int main()
             }
         }
 
+        int pelletsRemaining = pelletList.size() + pPelletList.size();
 
-        
+        if (pelletsRemaining == 0 && !gameWon) {
+            gameWon = true;
+            cout << gameWon << " You Won!" << endl;
+        }
 
         window.clear(Color::Black);
         for (Pellet& pellet : pelletList) pellet.Draw(window);
