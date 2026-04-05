@@ -12,7 +12,7 @@ public:
 	Wall(int x, int y, int w, int h);
 	Wall(int x, int y);
 
-	sf::RectangleShape GetSprite();
+	void GetSprite(RenderWindow* window);
 	sf::FloatRect GetRect();
 
 

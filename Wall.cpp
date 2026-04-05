@@ -15,13 +15,13 @@ Wall::Wall(int x, int y, int w, int h) {
 	pos = { (float) x, (float) y };
 }
 
-RectangleShape Wall::GetSprite() {
+void Wall::GetSprite(RenderWindow* window) {
 	RectangleShape rect({size.x, size.y});
 	rect.setFillColor(Color::Magenta);
 	rect.setOrigin({ (float)(size.x / 2) , (float) size.y / 2 });
 	rect.setPosition(pos);
 
-	return rect;
+	window->draw(rect);
 }
 
 FloatRect Wall::GetRect() {

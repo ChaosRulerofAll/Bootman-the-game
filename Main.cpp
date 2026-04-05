@@ -94,13 +94,13 @@ int main()
                     currentLang %= 3;
                     text.setString(localisationManager.GetLocalisedString(L"msg_debug", currentLang));
                 }
+                else if (keyPressed->scancode == sf::Keyboard::Scancode::P) {
+                    musicManager.Play("pandora");
+                }
             }
         }
 
         if (window.hasFocus()) {            
-            if (Keyboard::isKeyPressed(Keyboard::Key::P))
-                musicManager.Play("papaoutai");
-
             if (Keyboard::isKeyPressed(Keyboard::Key::Backspace))
                 musicManager.Stop();
         }
@@ -131,9 +131,9 @@ int main()
         window.clear(Color::Black);
         for (Pellet& pellet : pelletList) pellet.Draw(window);
         //for (Wall& wall : wallList) wall.Draw(window);
-        for (Wall& wall : wallList) window.draw(wall.GetSprite());
+        for (Wall& wall : wallList) wall.GetSprite(&window);
         //window.draw(wall.GetSprite());
-        window.draw(player.GetRect());
+        //window.draw(player.GetRect());
         window.draw(player.GetSprite());
         window.draw(text);
         window.display();

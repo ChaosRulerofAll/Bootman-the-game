@@ -15,7 +15,7 @@ public:
 		pellet.setRadius(Size);
 		pellet.setFillColor(color);
 		pellet.setOutlineColor(Color::Black);
-		pellet.setPosition(pos);
+		pellet.setPosition({pos.x - Size, pos.y - Size});
 	};
 
 	~Interactables();
