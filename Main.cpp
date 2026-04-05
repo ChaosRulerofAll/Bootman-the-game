@@ -38,13 +38,25 @@ int main()
     int xSpeed = 80;
     int ySpeed = 80;
 
+    bool boostActive = false;
+    float boostTimer = 0.0f;
+    const float boostDuration = 5.0f;
+
     Text text(font);
     text.setCharacterSize(24);
     text.setFillColor(Color::White);
     text.setString(localisationManager.GetLocalisedString(L"msg_debug", currentLang));
     text.setPosition(Vector2f(0, 0));
 
-    Player player = Player({ (float)windowSize.x / 2, (float)windowSize.y / 2 }, R"(assets/img/Akechi.png)");
+    float offsetX = max(0.0f, ((float)windowSize.x - (28 * tileSize)) / 2.0f);
+    float offsetY = max(0.0f, ((float)windowSize.y - (31 * tileSize)) / 2.0f);
+
+    Vector2f spawnPos(
+        offsetX + 13 * tileSize + tileSize / 2.f,
+        offsetY + 22.5f * tileSize + tileSize / 2.f
+    );
+
+    Player player = Player(spawnPos, R"(assets/img/Akechi.png)");
 
     int currentColour = 0;
     Color textColours[6] = {
@@ -124,11 +136,40 @@ int main()
         }//*/
 
         text.setPosition(pos);
-        player.Update(delta);
+        player.Update(delta, windowSize);
         for (int i = 0; i < wallCount; i++) player.CheckWalls(wallList[i].GetRect(), delta);
+
+        
+
+        FloatRect playerBounds = player.GetRect().getGlobalBounds();
+        for (Pellet& pellet : pelletList) {
+            if (pellet.IsActive() && playerBounds.findIntersection(pellet.GetBounds())) {
+                pellet.OnCollect();
+            }
+        }
+        for (PowerPellet& powerPellet : pPelletList) {
+            if (powerPellet.IsActive() && playerBounds.findIntersection(powerPellet.GetBounds())) {
+                powerPellet.OnCollect();
+                player.topSpeed *= 1.5f;
+                boostActive = true;
+                boostTimer = 0.0f;
+            }
+        }
+        if (boostActive) {
+            boostTimer += delta;
+            if (boostTimer >= boostDuration) {
+                boostActive = false;
+                boostTimer = 0.0f;
+                player.topSpeed = 150.0f;
+            }
+        }
+
+
+        
 
         window.clear(Color::Black);
         for (Pellet& pellet : pelletList) pellet.Draw(window);
+        for (PowerPellet& powerPellet : pPelletList) powerPellet.Draw(window);
         //for (Wall& wall : wallList) wall.Draw(window);
         for (Wall& wall : wallList) window.draw(wall.GetSprite());
         //window.draw(wall.GetSprite());

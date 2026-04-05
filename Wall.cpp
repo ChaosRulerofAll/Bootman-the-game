@@ -25,5 +25,5 @@ RectangleShape Wall::GetSprite() {
 }
 
 FloatRect Wall::GetRect() {
-	return (FloatRect( { pos.x, pos.y }, { size.x, size.y} ));
+	return (FloatRect({ pos.x - size.x / 2.0f , pos.y - size.y / 2.0f}, { size.x, size.y }));
 }

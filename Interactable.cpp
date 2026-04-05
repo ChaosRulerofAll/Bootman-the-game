@@ -10,6 +10,7 @@ using namespace std;
 
 vector<Pellet> pelletList;
 vector<Wall> wallList;
+vector<PowerPellet> pPelletList;
 int wallCount;
 int pixelSize;
 
@@ -28,6 +29,10 @@ void SpawnPellets(Map& mapLayout, Vector2u windowSize) {
 				Vector2f position(offsetX + col * tileSize, offsetY + row * tileSize);
 				pelletList.push_back(Pellet(position));
 			};
+			if (mapLayout.GetTileType(row, col) == 'p') {
+				Vector2f PowerPelletPosition(offsetX + col * tileSize - 4.0f, offsetY + row * tileSize - 4.0f);
+				pPelletList.push_back(PowerPellet(PowerPelletPosition));
+			}
 			if (mapLayout.GetTileType(row, col) == 'W') {
 				Vector2f positionWall(offsetX + col * tileSize, offsetY + row * tileSize);
 				wallList.push_back(Wall (positionWall.x, positionWall.y));
@@ -37,5 +42,6 @@ void SpawnPellets(Map& mapLayout, Vector2u windowSize) {
 		};
 	};
 	cout << "First Pellet Position Is: " << offsetX << ", " << offsetY << endl;
+	cout << "Power Pellet Count Is: " << pPelletList.size() << endl;
 
 }

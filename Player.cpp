@@ -34,20 +34,30 @@ sf::Sprite Player::GetSprite() {
 }
 
 sf::RectangleShape Player::GetRect() {
-    RectangleShape rect({ 50, 40 });
+    RectangleShape rect({ 20, 20 });
 
     rect.setFillColor(Color::Green);
-    rect.setOrigin({ 25 , 40 });
+    rect.setOrigin({ 10 , 10 });
     rect.setPosition(screenPos);
 
     return rect;
 }
 
 void Player::CheckWalls(FloatRect rect, float deltaTime) {
-    FloatRect soraRect({ screenPos.x, screenPos.y }, { 50, 40 });
-
-    if (soraRect.findIntersection(rect)) {
+    FloatRect soraRectX(
+        { screenPos.x - 10.f + moveDir.x * topSpeed * deltaTime, screenPos.y - 10.f },
+        { 20.f, 20.f }
+    );
+    if (soraRectX.findIntersection(rect)) {
         screenPos.x -= moveDir.x * topSpeed * deltaTime;
+    }
+
+    // Check Y axis alone
+    FloatRect soraRectY(
+        { screenPos.x - 10.f, screenPos.y - 10.f + moveDir.y * topSpeed * deltaTime },
+        { 20.f, 20.f }
+    );
+    if (soraRectY.findIntersection(rect)) {
         screenPos.y -= moveDir.y * topSpeed * deltaTime;
     }
 }
