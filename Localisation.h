@@ -7,7 +7,7 @@ using namespace std;
 using namespace sf;
 
 struct LocalisedString {
-	wstring StringLangs[3];
+	wstring StringLangs[4];
 };
 
 class Localisation

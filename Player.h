@@ -14,6 +14,8 @@ class Player
 		float moveSpeed = 0;
 		float topSpeed = 150;
 
+		~Player();
+
 		Player();
 		Player(Vector2f pos, std::string spritePath);
 		void Update(float deltaTime, Vector2u windowSize);
@@ -21,6 +23,9 @@ class Player
 
 		sf::Sprite GetSprite();
 		sf::RectangleShape GetRect();
+
+		void SetPos(Vector2f pos) { screenPos = pos; };
+		Vector2f GetCurrentMoveDir() { return moveDir; };
 	private:
 		void ParseXML(string path);
 		void SetAnimation();

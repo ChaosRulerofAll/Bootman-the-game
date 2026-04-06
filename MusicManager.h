@@ -22,4 +22,5 @@ public:
 private:
 	map<string, SongData> _songList;
 	Music _currentSong;
+	string _currentSongName = "";
 };

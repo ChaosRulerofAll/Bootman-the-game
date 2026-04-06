@@ -16,8 +16,11 @@ int pixelSize;
 
 Interactables::~Interactables() {};
 
-
 void SpawnPellets(Map& mapLayout, Vector2u windowSize) {
+	pelletList.clear();
+	wallList.clear();
+	pPelletList.clear();
+	wallCount = 0;
 
 	int tileSize = mapLayout.GetTilePixelSize(pixelSize);
 	float offsetX = max(0.0f, ((int)windowSize.x - (28 * tileSize)) / 2.0f) + 16;
@@ -42,6 +45,6 @@ void SpawnPellets(Map& mapLayout, Vector2u windowSize) {
 		};
 	};
 	cout << "First Pellet Position Is: " << offsetX << ", " << offsetY << endl;
-	cout << "Power Pellet Count Is: " << pPelletList.size() << endl;
+	cout << "Wall Count Is: " << wallList.size() << endl;
 
 }

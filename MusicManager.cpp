@@ -41,15 +41,19 @@ MusicManager::MusicManager() {
 }
 
 void MusicManager::Play(string songName) {
+	if (songName == _currentSongName) return;
+
 	_currentSong.stop();
 	_currentSong.openFromFile("assets/snd/mus/" + songName + ".ogg");
 	_currentSong.setLoopPoints({ seconds(_songList[songName].IntroPoint), seconds(_songList[songName].LoopPoint)});
 	_currentSong.setLooping(true);
 	_currentSong.play();
+	_currentSongName = songName;
 }
 
 void MusicManager::Stop() {
 	_currentSong.stop();
+	_currentSongName = "";
 }
 
 void MusicManager::Pause() {

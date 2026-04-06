@@ -17,16 +17,19 @@ Localisation::Localisation() {
 	if (localeTSV.is_open()) {
 		wstring line;
 		while (std::getline(localeTSV, line)) {
+			std::replace(line.begin(), line.end(), '|', '\n');
 			wstringstream ss(line);
 
 			wstring stringID;
 			wstring engString;
 			wstring espString;
+			wstring gerString;
 			wstring jpnString;
 
 			getline(ss, stringID, L'	');
 			getline(ss, engString, L'	');
 			getline(ss, espString, L'	');
+			getline(ss, gerString, L'	');
 			getline(ss, jpnString, L'	');
 
 			wcout << line << endl;
@@ -34,7 +37,8 @@ Localisation::Localisation() {
 			LocalisedString locale;
 			locale.StringLangs[0] = engString;
 			locale.StringLangs[1] = espString;
-			locale.StringLangs[2] = jpnString;
+			locale.StringLangs[2] = gerString;
+			locale.StringLangs[3] = jpnString;
 
 			_localeData.insert(pair<wstring, LocalisedString>(stringID, locale));
 		}

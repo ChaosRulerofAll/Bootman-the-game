@@ -20,6 +20,8 @@ Player::Player(Vector2f pos, std::string spritePath)
 
 }
 
+Player::~Player() {};
+
 sf::Sprite Player::GetSprite() {
     sf::Sprite sprite(spriteTexture);
 
@@ -46,8 +48,8 @@ sf::RectangleShape Player::GetRect() {
 void Player::CheckWalls(FloatRect rect, float deltaTime) {
     
     FloatRect soraRectX(
-        { screenPos.x - 10.f + moveDir.x * topSpeed * deltaTime, screenPos.y - 10.f },
-        { 20.f, 20.f }
+        { screenPos.x - 10.f + moveDir.x * topSpeed * deltaTime, screenPos.y - 14.f },
+        { 24, 14 }
     );
     
     if (soraRectX.findIntersection(rect)) {
@@ -56,8 +58,8 @@ void Player::CheckWalls(FloatRect rect, float deltaTime) {
 
     // Check Y axis alone
     FloatRect soraRectY(
-        { screenPos.x - 10.f, screenPos.y - 10.f + moveDir.y * topSpeed * deltaTime },
-        { 20.f, 20.f }
+        { screenPos.x - 10.f, screenPos.y - 14.f + moveDir.y * topSpeed * deltaTime },
+        { 24, 14 }
     );
     if (soraRectY.findIntersection(rect)) {
         screenPos.y -= moveDir.y * topSpeed * deltaTime;

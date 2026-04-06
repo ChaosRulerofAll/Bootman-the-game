@@ -1,8 +1,9 @@
 .vs/
 
 # Ilya's added ignores
-.log
-.tlog
+*.log
+*.tlog
+*.sav
 
 # Prerequisites
 *.d

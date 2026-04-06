@@ -10,15 +10,11 @@ using namespace sf;
 
 class Interactables {
 public:
-
-	
-
-
 	Interactables(Vector2f pos, int scoreValue, int Size, Color color) : position(pos), score(scoreValue), size(Size), col(color), isActive(true) {
 		pellet.setRadius(Size);
 		pellet.setFillColor(color);
 		pellet.setOutlineColor(Color::Black);
-		pellet.setPosition({pos.x - Size, pos.y - Size});
+		pellet.setPosition({pos.x - 3, pos.y - 3});
 	};
 
 	~Interactables();
@@ -31,7 +27,6 @@ public:
 
 	virtual void OnCollect() {
 		isActive = false;
-		
 	};
 
 	bool IsActive() const { return isActive;}
