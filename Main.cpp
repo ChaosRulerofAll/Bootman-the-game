@@ -254,7 +254,7 @@ void PacManGaming(float delta) {
     timeLeft -= delta;
 
     if (LoopCount == 0) {
-        timeLeft = 120;
+        timeLeft = DifficultyTimeLimits[CurrentDifficulty];
         player.SetPos(spawnPos);
 
         musicManager.Play("pandora");
