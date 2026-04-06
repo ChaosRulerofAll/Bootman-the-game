@@ -33,10 +33,10 @@ float DifficultyTimeLimits[4] = {
 };
 
 float RecordTimes[4] = {
-    200,
-    120,
-    80,
-    45
+    0,
+    0,
+    0,
+    0
 };
 
 int CurrentDifficulty = 0;
@@ -166,7 +166,7 @@ void TitleScreen(float delta) {
                 timeRemainingText.setString(localisationManager.GetLocalisedString(L"msg_difficulty_" + to_wstring(CurrentDifficulty), currentLang));
                 timeRemainingText.setPosition(Vector2f((windowSize.x / 2) - (timeRemainingText.getGlobalBounds().size.x / 2), 675));
 
-                pressEnterText.setString(localisationManager.GetLocalisedString(L"msg_best_time", currentLang) + to_string(RecordTimes[CurrentDifficulty]));
+                pressEnterText.setString(localisationManager.GetLocalisedString(L"msg_best_time", currentLang) + to_string(DifficultyTimeLimits[CurrentDifficulty] - RecordTimes[CurrentDifficulty]));
                 pressEnterText.setPosition(Vector2f((windowSize.x / 2) - (pressEnterText.getGlobalBounds().size.x / 2), 710));
             }
             else if (keyPressed->scancode == sf::Keyboard::Scancode::Right ||
@@ -177,7 +177,7 @@ void TitleScreen(float delta) {
                 timeRemainingText.setString(localisationManager.GetLocalisedString(L"msg_difficulty_" + to_wstring(CurrentDifficulty), currentLang));
                 timeRemainingText.setPosition(Vector2f((windowSize.x / 2) - (timeRemainingText.getGlobalBounds().size.x / 2), 675));
 
-                pressEnterText.setString(localisationManager.GetLocalisedString(L"msg_best_time", currentLang) + to_string(RecordTimes[CurrentDifficulty]));
+                pressEnterText.setString(localisationManager.GetLocalisedString(L"msg_best_time", currentLang) + to_string(DifficultyTimeLimits[CurrentDifficulty] - RecordTimes[CurrentDifficulty]));
                 pressEnterText.setPosition(Vector2f((windowSize.x / 2) - (pressEnterText.getGlobalBounds().size.x / 2), 710));
             }
         }
@@ -197,7 +197,7 @@ void TitleScreen(float delta) {
 
         pressEnterText.setFillColor(Color::White);
         pressEnterText.setCharacterSize(20);
-        pressEnterText.setString(localisationManager.GetLocalisedString(L"msg_best_time", currentLang) + to_string(RecordTimes[CurrentDifficulty]));
+        pressEnterText.setString(localisationManager.GetLocalisedString(L"msg_best_time", currentLang) + to_string(DifficultyTimeLimits[CurrentDifficulty] - RecordTimes[CurrentDifficulty]));
         pressEnterText.setPosition(Vector2f((windowSize.x / 2) - (pressEnterText.getGlobalBounds().size.x / 2), 710));
 
         titleTexture.loadFromFile("assets/img/titleScreen.png");
@@ -413,7 +413,7 @@ void GameOver(float delta, bool won) {
         pressEnterText.setPosition(Vector2f((windowSize.x / 2) - (pressEnterText.getGlobalBounds().size.x / 2), (windowSize.y / 2) - 75));
 
         if (won) {
-            if (timeLeft < RecordTimes[CurrentDifficulty]) {
+            if (timeLeft > RecordTimes[CurrentDifficulty]) {
                 RecordTimes[CurrentDifficulty] = timeLeft;
                 hashtagGamingText.setString(localisationManager.GetLocalisedString(L"msg_new_record", currentLang));
             } else 
